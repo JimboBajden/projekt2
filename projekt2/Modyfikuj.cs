@@ -32,6 +32,11 @@ namespace projekt2
             while (true)
             {
                 Console.Clear();
+                MySqlCommand GetOsoba = conn.CreateCommand();
+                GetOsoba.CommandText = $"SELECT * FROM `osoby`  WHERE id = {id}";
+                MySqlDataReader reader = GetOsoba.ExecuteReader();reader.Read();
+                osoba = reader.GetInt32(0) + " " + reader.GetString(1) + " " + reader.GetString(2) + " " + reader.GetString(3) + " " + reader.GetString(4);
+                reader.Close();
                 Console.WriteLine(osoba);
                 Console.WriteLine("______________________");
                 Console.WriteLine("co chcesz zmienić");
@@ -40,6 +45,7 @@ namespace projekt2
                 Console.WriteLine("3: numer telefonu");
                 Console.WriteLine("4: adres");
                 Console.WriteLine("5: nic :)");
+                Console.WriteLine(",: usun :)");
                 string input = Console.ReadLine();
                 switch (input)
                 {
@@ -82,6 +88,13 @@ namespace projekt2
                         break;
                     case "5":
                         return;
+                    case ",":
+                        MySqlCommand cmd6 = new MySqlCommand();
+                        cmd6 = conn.CreateCommand();
+                        cmd6.CommandText = $"DELETE FROM osoby WHERE id = {id}";
+                        Console.WriteLine(cmd6.CommandText);
+                        cmd6.ExecuteNonQuery();
+                        return;
                 }
             }
 
@@ -107,43 +120,36 @@ namespace projekt2
             }
             cmd.Close();
         }
-        private void choice(ref int i, ref int j)
+        private bool choice(ref int i, ref int j, ref int c,List<int> idChoice, List<string> OsobaChoice)
         {
             Console.WriteLine();
             Console.WriteLine("wybierz numer albo przejdz do następnej");
-            Console.Write("następne(n) "); if (i != 0) { Console.Write(" poprzednie(p)"); }
-            string input = Console.ReadLine();
-            switch (input)
+            Console.Write("następne(9) "); Console.Write("Wyjdź(8) "); if (i != 0) { Console.Write(" poprzednie(7)"); }
+            
+            while (true)
             {
-                case "n":
-                    j = 0;
-                    break;
-                case "p":
-                    if (i > 5) { i = i - 10; j = 0; }
-                    break;
-                case "0":
-                    id = ids[i - 5];
-                    osoba = content[i - 5];
-                    break;
-                case "1":
-                    id = ids[i - 4];
-                    osoba = content[i - 4];
-                    break;
-                case "2":
-                    id = ids[i - 3];
-                    osoba = content[i - 3];
-                    break;
-                case "3":
-                    id = ids[i - 2];
-                    osoba = content[i - 2];
-                    break;
-                case "4":
-                    id = ids[i - 1];
-                    osoba = content[i - 1];
-
-                    break;
-
-
+                string input = Console.ReadLine();
+                int tmp = System.Convert.ToInt32(input);
+                if (tmp > -1 && tmp < 5)
+                {
+                    id = idChoice[tmp];
+                    osoba = OsobaChoice[tmp];
+                    return true;
+                }
+                else
+                {
+                    switch (input)
+                    {
+                        case "9":
+                            j = 0;
+                            return false;
+                        case "7":
+                            if (i > 10) { i = i - 10; j = 0; c += 10; } else { i = 0; j = 0; c = ids.Count; }
+                            return false;
+                    }
+                }
+                
+               
             }
         }
         private void Write()
@@ -151,6 +157,8 @@ namespace projekt2
             int i = 0;
             int j = 0;
             int c = ids.Count;
+            List<string> ContentDoWybrania = new List<string>();
+            List<int> IdDoWybrania = new List<int>();
             if (ids.Count / 5 > 1)
             {
                 while (c > -1)
@@ -159,12 +167,19 @@ namespace projekt2
                     if (i < ids.Count)
                     {
                         Console.WriteLine(j + "| " + content[i]);
-                        i++;
+                        ContentDoWybrania.Add(content[i]);
+                        IdDoWybrania.Add(ids[i]);
+                        i++;    
                     }
                     j++;
-                    if (j > 4)
+                    if (j > 4 || c==0)
                     {
-                        choice(ref i, ref j);
+                        if(choice(ref i, ref j, ref c,IdDoWybrania, ContentDoWybrania) == true)
+                        {
+                            break;
+                        }Console.Clear();
+                        IdDoWybrania.Clear();
+                        ContentDoWybrania.Clear();
                     }
                 }
 

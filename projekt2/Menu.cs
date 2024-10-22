@@ -12,13 +12,17 @@ namespace projekt2
         public MySqlConnection connection = new MySqlConnection("Database=projekt;Server=localhost;user=root;password=");
         public Menu()
         {
-            connection.Open();
+            try
+            {
+                connection.Open();
+            }
+            catch (Exception ex) { Console.WriteLine("nie ma takiej bazy :( albo coś"); return; }
             while (true)
             {
-                //SQLiteCommand command = connection.CreateCommand();
+                //MySqlCommand command = connection.CreateCommand();
                 //command.CommandText = "INSERT INTO osoby (imie, nazwisko, numerTelefonu, adres) VALUES\r\n('Jan', 'Kowalski', '123456789', 'ul. Nowa 5, Warszawa'),\r\n('Anna', 'Nowak', '987654321', 'ul. Stara 12, Kraków'),\r\n('Piotr', 'Wiśniewski', '654321987', 'ul. Zielona 8, Gdańsk'),\r\n('Maria', 'Lewandowska', '111222333', 'ul. Słoneczna 9, Poznań'),\r\n('Tomasz', 'Kamiński', '444555666', 'ul. Wesoła 2, Wrocław'),\r\n('Katarzyna', 'Zielińska', '777888999', 'ul. Jasna 10, Łódź'),\r\n('Michał', 'Szymański', '999888777', 'ul. Krótka 3, Lublin'),\r\n('Agnieszka', 'Wójcik', '555666777', 'ul. Długa 15, Szczecin'),\r\n('Robert', 'Kozłowski', '333444555', 'ul. Spokojna 7, Bydgoszcz'),\r\n('Paweł', 'Jankowski', '222333444', 'ul. Leśna 11, Katowice');\r\n";
                 //command.ExecuteNonQuery();
-
+                
                 Console.WriteLine("opcje: ");
                 Console.WriteLine("1: zobacz osoby");
                 Console.WriteLine("2: dodaj osoby");

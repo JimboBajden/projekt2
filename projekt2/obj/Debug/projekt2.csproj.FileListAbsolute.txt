@@ -1,0 +1,60 @@
+C:\Users\Przemek Curzydło4tp\Desktop\projekt2-master\projekt2\bin\Debug\projekt2.exe.config
+C:\Users\Przemek Curzydło4tp\Desktop\projekt2-master\projekt2\bin\Debug\projekt2.exe
+C:\Users\Przemek Curzydło4tp\Desktop\projekt2-master\projekt2\bin\Debug\projekt2.pdb
+C:\Users\Przemek Curzydło4tp\Desktop\projekt2-master\projekt2\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Przemek Curzydło4tp\Desktop\projekt2-master\projekt2\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Przemek Curzydło4tp\Desktop\projekt2-master\projekt2\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Przemek Curzydło4tp\Desktop\projekt2-master\projekt2\bin\Debug\MySqlConnector.dll
+C:\Users\Przemek Curzydło4tp\Desktop\projekt2-master\projekt2\bin\Debug\System.Buffers.dll
+C:\Users\Przemek Curzydło4tp\Desktop\projekt2-master\projekt2\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Przemek Curzydło4tp\Desktop\projekt2-master\projekt2\bin\Debug\System.Memory.dll
+C:\Users\Przemek Curzydło4tp\Desktop\projekt2-master\projekt2\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Przemek Curzydło4tp\Desktop\projekt2-master\projekt2\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Przemek Curzydło4tp\Desktop\projekt2-master\projekt2\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Przemek Curzydło4tp\Desktop\projekt2-master\projekt2\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Przemek Curzydło4tp\Desktop\projekt2-master\projekt2\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\Przemek Curzydło4tp\Desktop\projekt2-master\projekt2\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Users\Przemek Curzydło4tp\Desktop\projekt2-master\projekt2\bin\Debug\MySqlConnector.xml
+C:\Users\Przemek Curzydło4tp\Desktop\projekt2-master\projekt2\bin\Debug\System.Buffers.xml
+C:\Users\Przemek Curzydło4tp\Desktop\projekt2-master\projekt2\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Przemek Curzydło4tp\Desktop\projekt2-master\projekt2\bin\Debug\System.Memory.xml
+C:\Users\Przemek Curzydło4tp\Desktop\projekt2-master\projekt2\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Przemek Curzydło4tp\Desktop\projekt2-master\projekt2\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Przemek Curzydło4tp\Desktop\projekt2-master\projekt2\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Przemek Curzydło4tp\Desktop\projekt2-master\projekt2\obj\Debug\projekt2.csproj.AssemblyReference.cache
+C:\Users\Przemek Curzydło4tp\Desktop\projekt2-master\projekt2\obj\Debug\projekt2.csproj.SuggestedBindingRedirects.cache
+C:\Users\Przemek Curzydło4tp\Desktop\projekt2-master\projekt2\obj\Debug\projekt2.exe.config
+C:\Users\Przemek Curzydło4tp\Desktop\projekt2-master\projekt2\obj\Debug\projekt2.csproj.CoreCompileInputs.cache
+C:\Users\Przemek Curzydło4tp\Desktop\projekt2-master\projekt2\obj\Debug\projekt2.csproj.Up2Date
+C:\Users\Przemek Curzydło4tp\Desktop\projekt2-master\projekt2\obj\Debug\projekt2.exe
+C:\Users\Przemek Curzydło4tp\Desktop\projekt2-master\projekt2\obj\Debug\projekt2.pdb
+C:\Users\jimbo\Desktop\projekt2-master\projekt2\bin\Debug\projekt2.exe.config
+C:\Users\jimbo\Desktop\projekt2-master\projekt2\bin\Debug\projekt2.exe
+C:\Users\jimbo\Desktop\projekt2-master\projekt2\bin\Debug\projekt2.pdb
+C:\Users\jimbo\Desktop\projekt2-master\projekt2\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\jimbo\Desktop\projekt2-master\projekt2\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\jimbo\Desktop\projekt2-master\projekt2\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\jimbo\Desktop\projekt2-master\projekt2\bin\Debug\MySqlConnector.dll
+C:\Users\jimbo\Desktop\projekt2-master\projekt2\bin\Debug\System.Buffers.dll
+C:\Users\jimbo\Desktop\projekt2-master\projekt2\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\jimbo\Desktop\projekt2-master\projekt2\bin\Debug\System.Memory.dll
+C:\Users\jimbo\Desktop\projekt2-master\projekt2\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\jimbo\Desktop\projekt2-master\projekt2\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\jimbo\Desktop\projekt2-master\projekt2\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\jimbo\Desktop\projekt2-master\projekt2\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\jimbo\Desktop\projekt2-master\projekt2\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\jimbo\Desktop\projekt2-master\projekt2\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Users\jimbo\Desktop\projekt2-master\projekt2\bin\Debug\MySqlConnector.xml
+C:\Users\jimbo\Desktop\projekt2-master\projekt2\bin\Debug\System.Buffers.xml
+C:\Users\jimbo\Desktop\projekt2-master\projekt2\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\jimbo\Desktop\projekt2-master\projekt2\bin\Debug\System.Memory.xml
+C:\Users\jimbo\Desktop\projekt2-master\projekt2\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\jimbo\Desktop\projekt2-master\projekt2\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\jimbo\Desktop\projekt2-master\projekt2\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\jimbo\Desktop\projekt2-master\projekt2\obj\Debug\projekt2.csproj.AssemblyReference.cache
+C:\Users\jimbo\Desktop\projekt2-master\projekt2\obj\Debug\projekt2.csproj.SuggestedBindingRedirects.cache
+C:\Users\jimbo\Desktop\projekt2-master\projekt2\obj\Debug\projekt2.exe.config
+C:\Users\jimbo\Desktop\projekt2-master\projekt2\obj\Debug\projekt2.csproj.CoreCompileInputs.cache
+C:\Users\jimbo\Desktop\projekt2-master\projekt2\obj\Debug\projekt2.csproj.Up2Date
+C:\Users\jimbo\Desktop\projekt2-master\projekt2\obj\Debug\projekt2.exe
+C:\Users\jimbo\Desktop\projekt2-master\projekt2\obj\Debug\projekt2.pdb

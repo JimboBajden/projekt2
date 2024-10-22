@@ -18,6 +18,7 @@ namespace projekt2
             command = connection.CreateCommand();
             command.CommandText = "SELECT * FROM osoby WHERE ";
             PoCzym();
+            Console.Clear();
 
         }
         private void PoCzym()
@@ -30,7 +31,7 @@ namespace projekt2
             Console.WriteLine("4: numer telefonu");
             Console.WriteLine("5: adres");
             Console.WriteLine("6: Wyszukaj");
-            Console.WriteLine("E: wyjdz");
+            Console.WriteLine("8: wyjdz");
             string opcja = Console.ReadLine();
 
             switch (opcja)
@@ -57,16 +58,19 @@ namespace projekt2
                     }
                     var reader1 = command.ExecuteReader();
                     Console.WriteLine("tabela osoby");
+                    int i = 0;
                     while (reader1.Read())
                     {
+                        i++;
                         Console.WriteLine(reader1.GetInt32(0) + " " + reader1.GetString(1) + " " + reader1.GetString(2) + " "
                         + reader1.GetString(3) + " " + reader1.GetString(4));
                     }
+                    if (i == 0) { Console.WriteLine("nie ma takiego / takich"); }
                     reader1.Close();
                     Console.WriteLine("nacisnij coś");
                     Console.ReadKey();
                     break;
-                case "e":
+                case "8":
                     Console.Clear();
                     return;
             }

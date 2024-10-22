@@ -10,7 +10,9 @@ namespace projekt2
     {
         static void Main(string[] args)
         {
+            Console.WriteLine( (14/5*5) - 14 + 3);
             Menu menu = new Menu();
+            
         }
     }
 }
