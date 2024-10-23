@@ -77,10 +77,10 @@ namespace projekt2
 
         }
 
-        public MySqlDataReader GiveReader()
+        public MySqlCommand GiveCommand()
         {
 
-            return command.ExecuteReader();
+            return command;
         }
 
         private void Id()

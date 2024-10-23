@@ -10,7 +10,7 @@ namespace projekt2
     internal class Modyfikuj
     {
         MySqlConnection conn;
-        MySqlDataReader cmd = null;
+        MySqlCommand cmd = null;
         List<int> ids = new List<int>();
         List<string> content = new List<string>();
         int id;
@@ -22,8 +22,6 @@ namespace projekt2
 
             Console.Clear();
             Read();
-            //Console.WriteLine();
-            Write();
             OCo();
             Console.Clear();
         }
@@ -34,7 +32,7 @@ namespace projekt2
                 Console.Clear();
                 MySqlCommand GetOsoba = conn.CreateCommand();
                 GetOsoba.CommandText = $"SELECT * FROM `osoby`  WHERE id = {id}";
-                MySqlDataReader reader = GetOsoba.ExecuteReader();reader.Read();
+                MySqlDataReader reader = GetOsoba.ExecuteReader(); reader.Read();
                 osoba = reader.GetInt32(0) + " " + reader.GetString(1) + " " + reader.GetString(2) + " " + reader.GetString(3) + " " + reader.GetString(4);
                 reader.Close();
                 Console.WriteLine(osoba);
@@ -104,7 +102,7 @@ namespace projekt2
             Wyszukaj wyszukaj = new Wyszukaj(conn);
             try
             {
-                cmd = wyszukaj.GiveReader();
+                cmd = wyszukaj.GiveCommand();
             }
             catch (Exception ex) { return false; }
 
@@ -113,134 +111,79 @@ namespace projekt2
         }
         private void Read()
         {
-            while (cmd.Read())
-            {
-                content.Add(cmd.GetInt32(0) + " " + cmd.GetString(1) + " " + cmd.GetString(2) + " " + cmd.GetString(3) + " " + cmd.GetString(4));
-                ids.Add(cmd.GetInt32(0));
-            }
-            cmd.Close();
-        }
-        private bool choice(ref int i, ref int j, ref int c,List<int> idChoice, List<string> OsobaChoice)
-        {
-            Console.WriteLine();
-            Console.WriteLine("wybierz numer albo przejdz do następnej");
-            Console.Write("następne(9) "); Console.Write("Wyjdź(8) "); if (i != 0) { Console.Write(" poprzednie(7)"); }
-            
-            while (true)
-            {
-                string input = Console.ReadLine();
-                int tmp = System.Convert.ToInt32(input);
-                if (tmp > -1 && tmp < 5)
-                {
-                    id = idChoice[tmp];
-                    osoba = OsobaChoice[tmp];
-                    return true;
-                }
-                else
-                {
-                    switch (input)
-                    {
-                        case "9":
-                            j = 0;
-                            return false;
-                        case "7":
-                            if (i > 10) { i = i - 10; j = 0; c += 10; } else { i = 0; j = 0; c = ids.Count; }
-                            return false;
-                    }
-                }
-                
-               
-            }
-        }
-        private void Write()
-        {
             int i = 0;
             int j = 0;
-            int c = ids.Count;
-            List<string> ContentDoWybrania = new List<string>();
-            List<int> IdDoWybrania = new List<int>();
-            if (ids.Count / 5 > 1)
+            bool check = true;
+            MySqlCommand Count = conn.CreateCommand();
+            Count.CommandText = cmd.CommandText;
+            int size = 0;
+            MySqlDataReader Reader = Count.ExecuteReader();while (Reader.Read()) { size++; };
+            Reader.Close();
+            MySqlCommand command1 = conn.CreateCommand();
+            while (check)
             {
-                while (c > -1)
-                {
-                    c--;
-                    if (i < ids.Count)
-                    {
-                        Console.WriteLine(j + "| " + content[i]);
-                        ContentDoWybrania.Add(content[i]);
-                        IdDoWybrania.Add(ids[i]);
-                        i++;    
-                    }
-                    j++;
-                    if (j > 4 || c==0)
-                    {
-                        if(choice(ref i, ref j, ref c,IdDoWybrania, ContentDoWybrania) == true)
-                        {
-                            break;
-                        }Console.Clear();
-                        IdDoWybrania.Clear();
-                        ContentDoWybrania.Clear();
-                    }
-                }
+                //SELECT * FROM osoby LIMIT 3 OFFSET 0; 
 
+                command1.CommandText = cmd.CommandText + $" LIMIT 5 OFFSET {i}";
+                MySqlDataReader reader1 = command1.ExecuteReader();
 
-            }
-            else
-            {
-                while (i < ids.Count)
+                while (reader1.Read())
                 {
-                    Console.WriteLine(j + "| " + content[i]);
-                    j++;
                     i++;
+                    Console.WriteLine(j + "| " + reader1.GetInt32(0) + " " + reader1.GetString(1) + " " + reader1.GetString(2) + " " + reader1.GetString(3) + " " + reader1.GetString(4));
+                    j++;
+                    ids.Add(reader1.GetInt32(0));
                 }
-                Console.WriteLine();
-                Console.WriteLine("wybierz numer");
-                string input = Console.ReadLine();
-                switch (input)
+                reader1.Close();
+                if (i > 5) { Console.WriteLine("poprzednie(7) "); };
+                Console.WriteLine("8: wyjdź");
+                Console.WriteLine("następne(9) ");
+                bool check2 = true;
+                while (check2)
                 {
-                    case "0":
-                        if (ids.Count >= 1)
+                    string input;
+                    {
+                        input = Console.ReadLine();
+                        switch (input)
                         {
-                            id = ids[0];
-                            osoba = content[0];
+                            case "9":
+                                j = 0;
+                                Console.Clear();
+                                check2 = false;
+                                break;
+                            case "8":
+                                reader1.Close();
+                                check2 = false;
+                                Console.Clear();
+                                return;
+                            case "7":
+                                if (i > 5)
+                                {
+                                    i = i - (i - 5) - 5;
+                                }
+                                j = 0;
+                                Console.Clear();
+                                check2 = false;
+                                break;
                         }
-                        return;
-                        break;
-                    case "1":
-                        if (ids.Count >= 2)
+                        try
                         {
-                            id = ids[1];
-                            osoba = content[1];
+                            int tmp = System.Convert.ToInt32(input);
+                            if (tmp > -1 && tmp < 5)
+                            {
+                                id = ids[tmp];
+                                check2 = false;
+                                check = false;
+                                reader1.Close();
+                            }
                         }
-                        return;
-                        break;
-                    case "2":
-                        if (ids.Count >= 3)
-                        {
-                            id = ids[2];
-                            osoba = content[2];
-                        }
-                        return;
-                        break;
-                    case "3":
-                        if (ids.Count >= 4)
-                        {
-                            id = ids[3];
-                            osoba = content[3];
-                        }
-                        break;
-                    case "4":
-                        if (ids.Count >= 5)
-                        {
-                            id = ids[4];
-                            osoba = content[4];
-                        }
-                        Console.Clear();
-                        return;
-                        break;
-
+                        catch (Exception e) { }
+                    }
                 }
+
+                if (i >= size || size < 5) { check = false; }
             }
         }
+        
         }
     }

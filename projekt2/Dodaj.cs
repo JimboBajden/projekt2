@@ -23,6 +23,8 @@ namespace projekt2
             command2.CommandText = $"insert into osoby (imie , nazwisko , numerTelefonu , adres) values ('{imie}' , '{nazwisko}' , '{numer}' , '{adres}')";
 
             var numberOfRows = command2.ExecuteNonQuery();
+            Console.Clear();
+            Console.WriteLine($"dodano osobe : {imie} {nazwisko} {numer} {adres}");
 
         }
     }

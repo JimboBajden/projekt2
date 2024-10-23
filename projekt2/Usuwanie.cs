@@ -15,6 +15,7 @@ namespace projekt2
         public Usuwanie(MySqlConnection connection)
         {
             this.conn = connection;
+
             PoCzym();
         }
 
@@ -57,13 +58,35 @@ namespace projekt2
             Console.WriteLine("podaj id: "); string id = Console.ReadLine();
             MySqlCommand command3 = conn.CreateCommand();
             command3.CommandText = $"DELETE FROM osoby WHERE id = {id}";
+
+            MySqlCommand GetOsoba = conn.CreateCommand();
+            GetOsoba.CommandText = $"SELECT * FROM `osoby` WHERE id = {id}";
+            MySqlDataReader reader = GetOsoba.ExecuteReader();
+            Console.Clear();Console.WriteLine("usunięto:");
+            while(reader.Read())
+            {
+                Console.WriteLine(reader.GetInt32(0) + " " + reader.GetString(1) + " " + reader.GetString(2) + " " + reader.GetString(3) + " " + reader.GetString(4));
+            }
+            reader.Close();
             command3.ExecuteNonQuery();
+
         }
         private void imie()
         {
             Console.WriteLine("podaj imie: "); string id = Console.ReadLine();
             MySqlCommand command3 = conn.CreateCommand();
-            command3.CommandText = $"DELETE FROM osoby WHERE imie = '{id}'";
+            command3.CommandText = $"DELETE FROM osoby WHERE imie LIKE('{id}')";
+
+            MySqlCommand GetOsoba = conn.CreateCommand();
+            GetOsoba.CommandText = $"SELECT * FROM `osoby` WHERE imie LIKE('{id}')";
+            MySqlDataReader reader = GetOsoba.ExecuteReader();
+            Console.Clear(); Console.WriteLine("usunięto:");
+            while (reader.Read())
+            {
+                Console.WriteLine(reader.GetInt32(0) + " " + reader.GetString(1) + " " + reader.GetString(2) + " " + reader.GetString(3) + " " + reader.GetString(4));
+            }
+            reader.Close();
+
             command3.ExecuteNonQuery();
         }
 
@@ -71,21 +94,52 @@ namespace projekt2
         {
             Console.WriteLine("podaj nazwisko: "); string id = Console.ReadLine();
             MySqlCommand command3 = conn.CreateCommand();
-            command3.CommandText = $"DELETE FROM osoby WHERE nazwisko = '{id}'";
+            command3.CommandText = $"DELETE FROM osoby WHERE nazwisko  LIKE('{id}')";
+
+            MySqlCommand GetOsoba = conn.CreateCommand();
+            GetOsoba.CommandText = $"SELECT * FROM `osoby` WHERE nazwisko LIKE('{id}')";
+            MySqlDataReader reader = GetOsoba.ExecuteReader();
+            Console.Clear(); Console.WriteLine("usunięto:");
+            while (reader.Read())
+            {
+                Console.WriteLine(reader.GetInt32(0) + " " + reader.GetString(1) + " " + reader.GetString(2) + " " + reader.GetString(3) + " " + reader.GetString(4));
+            }
+            reader.Close();
+
             command3.ExecuteNonQuery();
         }
         private void numer()
         {
             Console.WriteLine("podaj numer tefonu: "); string id = Console.ReadLine();
             MySqlCommand command3 = conn.CreateCommand();
-            command3.CommandText = $"DELETE FROM osoby WHERE numerTelefonu = '{id}'";
+            command3.CommandText = $"DELETE FROM osoby WHERE numerTelefonu LIKE('{id}')";
+
+            MySqlCommand GetOsoba = conn.CreateCommand();
+            GetOsoba.CommandText = $"SELECT * FROM `osoby` WHERE numerTelefonu LIKE('{id}')";
+            MySqlDataReader reader = GetOsoba.ExecuteReader();
+            Console.Clear(); Console.WriteLine("usunięto:");
+            while (reader.Read())
+            {
+                Console.WriteLine(reader.GetInt32(0) + " " + reader.GetString(1) + " " + reader.GetString(2) + " " + reader.GetString(3) + " " + reader.GetString(4));
+            }
+            reader.Close();
             command3.ExecuteNonQuery();
         }
         private void adres()
         {
             Console.WriteLine("podaj numer tefonu: "); string id = Console.ReadLine();
             MySqlCommand command3 = conn.CreateCommand();
-            command3.CommandText = $"DELETE FROM osoby WHERE adres = '{id}'";
+            command3.CommandText = $"DELETE FROM osoby WHERE adres LIKE('{id}')";
+
+            MySqlCommand GetOsoba = conn.CreateCommand();
+            GetOsoba.CommandText = $"SELECT * FROM `osoby` WHERE adres LIKE('{id}')";
+            MySqlDataReader reader = GetOsoba.ExecuteReader();
+            Console.Clear(); Console.WriteLine("usunięto:");
+            while (reader.Read())
+            {
+                Console.WriteLine(reader.GetInt32(0) + " " + reader.GetString(1) + " " + reader.GetString(2) + " " + reader.GetString(3) + " " + reader.GetString(4));
+            }
+            reader.Close();
             command3.ExecuteNonQuery();
         }
     }
